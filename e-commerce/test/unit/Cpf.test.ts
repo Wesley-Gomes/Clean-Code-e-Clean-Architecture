@@ -3,11 +3,16 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 // eslint-disable-next-line import/no-unresolved
-
-import Cpf from '../src/Cpf';
+import Cpf from '../../src/domain/entity/Cpf';
 
 test('Invalid cpf', () => {
-  const testValues = ['111.222.333-99', 'aaa.BBB.cCc-DD', '1a1.2b2.33c-9d', '111.111.111-11'];
+  const testValues = [
+    '111.222.333-99',
+    'aaa.BBB.cCc-DD',
+    '1a1.2b2.33c-9d',
+    '111.111.111-11',
+    '11111111111',
+  ];
   let cpf;
   let error;
   try {

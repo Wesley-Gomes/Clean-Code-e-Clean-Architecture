@@ -1,7 +1,8 @@
 /* eslint-disable no-undef */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
-import Coupon from '../src/Coupon';
+
+import Coupon from '../../src/domain/entity/Coupon';
 
 test('Valid Coupon', () => {
   const percentage = 20;

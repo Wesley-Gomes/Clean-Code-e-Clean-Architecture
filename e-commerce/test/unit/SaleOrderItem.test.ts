@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
-import Item from '../src/Item';
-import SalesOrderItem from '../src/SaleOrderItem';
+import Item from '../../src/domain/entity/Item';
+import SalesOrderItem from '../../src/domain/entity/SaleOrderItem';
 
 test('Create item', () => {
   const orderItem = new SalesOrderItem(new Item(567, 'Monitor', 'Samsung UR550', 2399.0), 2);

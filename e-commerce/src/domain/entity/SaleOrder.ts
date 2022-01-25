@@ -3,19 +3,13 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 import Coupon from './Coupon';
-import Cpf from './Cpf';
+import Customer from './Customer';
 import DefaultFreightCalculator from './DefaultFreightCalculator';
 import FreightCalculator from './FreightCalculator';
 import Item from './Item';
 import SalesOrderItem from './SaleOrderItem';
 
 export default class SalesOrder {
-  customerId: number;
-
-  customerName: string;
-
-  customerCpf: Cpf;
-
   private items: SalesOrderItem[];
 
   coupon: Coupon | undefined;
@@ -23,22 +17,12 @@ export default class SalesOrder {
   private freight: number;
 
   constructor(
-    customerId: number,
-    customerName: string,
-    customerCpf: string,
+    readonly customer: Customer,
     readonly date: Date = new Date(),
     readonly freightCalculator: FreightCalculator = new DefaultFreightCalculator()
   ) {
-    if (!this.validateCustomerName(customerName)) throw new Error('Invalid Customer Name');
-    this.customerId = customerId;
-    this.customerName = customerName;
-    this.customerCpf = new Cpf(customerCpf);
     this.items = [];
     this.freight = 0;
-  }
-
-  validateCustomerName(name: string) {
-    return /^[a-zA-Z]*$/.test(name.replace(/[ *]/, ''));
   }
 
   addItem(item: Item, quantity: number) {
